@@ -1,0 +1,19 @@
+name: Checkmarx SAST Scan
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/5 * * * *'
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Checkmarx Action
+      uses: checkmarx-ts/checkmarx-github-action@v1.0.3
+      with:
+        cxServer: ${{ secrets.CX_SERVER }}
+        cxUsername: ${{ secrets.CX_USER }}
+        cxPassword: ${{ secrets.CX_PASSWORD }}
+        cxTeam: ${{ secrets.CX_SERVER }}
