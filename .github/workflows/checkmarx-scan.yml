@@ -16,4 +16,4 @@ jobs:
         cxServer: ${{ secrets.CX_SERVER }}
         cxUsername: ${{ secrets.CX_USER }}
         cxPassword: ${{ secrets.CX_PASSWORD }}
-        cxTeam: ${{ secrets.CX_SERVER }}
+        cxTeam: ${{ secrets.CX_TEAM }}
