@@ -15,5 +15,6 @@ jobs:
         cxPassword: ${{ secrets.CX_PASSWORD }}
         cxTeam: ${{ secrets.CX_TEAM }}
         cxGithubIssues: true
-        cxGithubToken: ${{ secrets.GITHUB_TOKEN }}
+        cxGithubToken: ${{ secrets.GH_TOKEN }}
         cxGithubLabels: bug,test
+        cxVerbose : true
