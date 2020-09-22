@@ -6,15 +6,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
-    - name: Checkmarx Action
-      uses: checkmarx-ts/checkmarx-github-action@v1.0.3
+      uses: actions/checkout@v2
+    # Scan code with Checkmarx
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@1.0
       with:
-        cxServer: ${{ secrets.CX_SERVER }}
-        cxUsername: ${{ secrets.CX_USER }}
-        cxPassword: ${{ secrets.CX_PASSWORD }}
-        cxTeam: ${{ secrets.CX_TEAM }}
-        cxGithubIssues: true
-        cxGithubToken: ${{ secrets.GH_TOKEN }}
-        cxGithubLabels: bug,test
-        cxVerbose : true
+        project: GithubActionTest
+        team: ${{ secrets.CX_TEAM }}
+        checkmarx_url: ${{ secrets.CX_SERVER }}
+        checkmarx_username: ${{ secrets.CX_USER }}
+        checkmarx_password: ${{ secrets.CX_PASSWORD }}
+        checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+    # Upload SARIF report for CodeQL / Security Alerts PRocessing
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: cx.sarif
+
