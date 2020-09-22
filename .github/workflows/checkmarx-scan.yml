@@ -19,6 +19,6 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: true
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --logging.level.com.checkmarx.flow.cmd=DEBUG --logging.level.com.checkmarx.flow.service= DEBUG --logging.level.com.checkmarx.flow.controller= DEBUG --logging.level.org.apache.http.wire = DEBUG  --logging.level.org.springframework.web.client.RestTemplate= DEBUG --bug-tracker=GitHub --namespace=MithileshPawar --repo-name=BodgeIt --repo-url=https://github.com/MithileshPawar/BodgeIt.git --branch=master
+        params: --logging.level.com.checkmarx.flow.cmd=DEBUG --logging.level.com.checkmarx.flow.service=DEBUG --logging.level.com.checkmarx.flow.controller=DEBUG --logging.level.org.apache.http.wire=DEBUG  --logging.level.org.springframework.web.client.RestTemplate=DEBUG --bug-tracker=GitHub --namespace=MithileshPawar --repo-name=BodgeIt --branch=master
 
 
