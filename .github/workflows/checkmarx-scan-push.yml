@@ -1,0 +1,28 @@
+name: Checkmarx SAST Scan
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Checkout
+      uses: actions/checkout@v2
+    # Scan code with Checkmarx
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.0-9.x #Github Action version
+      with:
+        project: GithubActionTest
+        team: ${{ secrets.CX_TEAM }}
+        checkmarx_url: ${{ secrets.CX_SERVER }}
+        checkmarx_username: ${{ secrets.CX_USER }}
+        checkmarx_password: ${{ secrets.CX_PASSWORD }}
+        checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+        break_build: true
+        github_token: ${{ secrets.GH_TOKEN }}
+        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE --bug-tracker=GitHub --namespace=MithileshPawar --repo-name=BodgeIt  --branch=master
+
+
+#--logging.level.org.apache.http.wire=DEBUG 

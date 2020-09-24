@@ -1,8 +1,5 @@
 name: Checkmarx SAST Scan
 on:
-  push:
-    branches:
-      - master
   pull_request:
     types: [opened,reopened]
     branches:
@@ -13,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - if: github.event_name == 'pull_request'
+      name: Get the Pull Request Number
       run: echo ::set-env name=PR_NUMBER::$(echo "$GITHUB_REF" | awk -F / '{print $3}')
       shell: bash    
-    - name: Print environment variables
-      run: printenv
     - name: Checkout
       uses: actions/checkout@v2
     # Scan code with Checkmarx
@@ -31,7 +27,7 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: true
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE --bug-tracker=GitHub --namespace=MithileshPawar --repo-name=BodgeIt  --branch=master
+        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=MithileshPawar --repo-name=BodgeIt  --branch=master --bug-tracker=GITHUBPULL --merge-id=$PR_NUMBER
 
 
 #--logging.level.org.apache.http.wire=DEBUG 
