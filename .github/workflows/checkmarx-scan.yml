@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Print environment variables
-      run: echo printenv
+      run: printenv
     - name: Checkout
       uses: actions/checkout@v2
     # Scan code with Checkmarx
