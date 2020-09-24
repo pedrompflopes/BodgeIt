@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     -if: github.event_name == 'pull_request'
-      env:
+     env:
         PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')        
     - name: Print environment variables
       run: printenv
