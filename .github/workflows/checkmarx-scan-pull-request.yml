@@ -1,7 +1,7 @@
 name: Checkmarx SAST Scan
 on:
   pull_request:
-    types: [opened,reopened]
+    types: [opened, reopened, synchronize]
     branches:
       - master    
     
