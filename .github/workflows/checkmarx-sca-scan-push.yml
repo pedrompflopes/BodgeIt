@@ -1,4 +1,4 @@
-name: Checkmarx SAST Scan
+name: Checkmarx SCA Scan
 on:
   push:
     branches:
