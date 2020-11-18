@@ -24,9 +24,10 @@ jobs:
         checkmarx_username: ${{ secrets.CX_USER }}
         checkmarx_password: ${{ secrets.CX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
-        break_build: true
+        break_build: false
+        scanner: sca
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE --bug-tracker=GitHub --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --enabled-vulnerability-scanners=sca --repo-url="https://github.com/MithileshPawar/BodgeIt.git" --sca.appUrl= ${{ secrets.CX_SCA_APP_URL }} --sca.apiUrl= ${{ secrets.CX_SCA_API_URL }} --sca.password = ${{ secrets.CX_SCA_PASSWORD }} --sca.username = ${{ secrets.CX_SCA_USERNAME }} --sca.tenant = ${{ secrets.CX_SCA_TENANT }} --sca.accessControlUrl = ${{ secrets.CX_SCA_AC_URL }}
+        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE --bug-tracker=GitHub --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git" --sca.password = ${{ secrets.CX_SCA_PASSWORD }} --sca.username = ${{ secrets.CX_SCA_USERNAME }} --sca.tenant = ${{ secrets.CX_SCA_TENANT }} 
 
 
 #--logging.level.org.apache.http.wire=DEBUG 
