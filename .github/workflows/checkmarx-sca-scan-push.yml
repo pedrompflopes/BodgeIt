@@ -25,7 +25,7 @@ jobs:
         checkmarx_password: ${{ secrets.CX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: false
-        scanner: sca
+        scanner: sast
         github_token: ${{ secrets.GH_TOKEN }}
         params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE --bug-tracker=GitHub --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git" --sca.password=${{ secrets.CX_SCA_PASSWORD }} --sca.username=${{ secrets.CX_SCA_USERNAME }} --sca.tenant=${{ secrets.CX_SCA_TENANT }} 
 
