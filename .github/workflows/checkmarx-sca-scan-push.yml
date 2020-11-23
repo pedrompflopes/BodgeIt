@@ -27,6 +27,7 @@ jobs:
         sca_tenant: ${{ secrets.CX_SCA_TENANT }} 
         sca_username: ${{ secrets.CX_SCA_USERNAME }}
         sca_password: ${{ secrets.CX_SCA_PASSWORD }}
+        cxgo_client_secret: ${{ secrets.CX_GO_CLIENT_SECRET }}
         break_build: false
         scanner: cxgo
         github_token: ${{ secrets.GH_TOKEN }}
