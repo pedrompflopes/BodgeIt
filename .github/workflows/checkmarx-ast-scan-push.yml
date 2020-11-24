@@ -25,7 +25,7 @@ jobs:
         ast_client_id: CxFlow
         ast_client_secret: ${{ secrets.AST_CLIENT_SECRET }}
         break_build: false
-        scanner: cxgo
+        scanners: ast
         github_token: ${{ secrets.GH_TOKEN }}
         params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
 
