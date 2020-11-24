@@ -18,19 +18,16 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@feature/integrate-scanners #Github Action version
       with:
-        project: GithubActionTest
-        team: \Demo\CxFlow\MithileshPawar
-        checkmarx_url: ${{ secrets.CX_SERVER }}
-        checkmarx_username: ${{ secrets.CX_USER }}
-        checkmarx_password: ${{ secrets.CX_PASSWORD }}
-        checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
-        sca_tenant: ${{ secrets.CX_SCA_TENANT }} 
+        project: GithubActionSCAScanTest
+        team: /CxServer/MP
+        sca_api_url: https://sca.scacheckmarx.com
+        sca_app_url: https://api.scacheckmarx.com
+        sca_access_control_url: https://platform.checkmarx.net
+        sca_tenant: sca-checkmarx
         sca_username: ${{ secrets.CX_SCA_USERNAME }}
         sca_password: ${{ secrets.CX_SCA_PASSWORD }}
-        cxgo_client_secret: ${{ secrets.CX_GO_CLIENT_SECRET }}
         break_build: false
-        scanner: cxgo
-        github_token: ${{ secrets.GH_TOKEN }}
+        scanners: sca
         params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
 
     - name: Upload SARIF file
