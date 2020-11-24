@@ -1,0 +1,36 @@
+name: Checkmarx AST Scan
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env :
+        REPO_NAME: ${{ github.event.repository.name }}
+    steps:
+    - name: Get the Organization Name
+      run: echo "ORG_NAME=$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')" >> $GITHUB_ENV
+    - name: Checkout
+      uses: actions/checkout@v2
+    # Scan code with Checkmarx
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@feature/integrate-scanners #Github Action version
+      with:
+        project: GithubActionTest
+        team: \Demo\CxFlow\MithileshPawar
+        ast_api_url: http://ec2-3-249-214-110.eu-west-1.compute.amazonaws.com
+        ast_webapp_url: http://ec2-3-249-214-110.eu-west-1.compute.amazonaws.com
+        ast_client_id: CxFlow
+        ast_client_secret: ${{ secrets.AST_CLIENT_SECRET }}
+        break_build: false
+        scanner: cxgo
+        github_token: ${{ secrets.GH_TOKEN }}
+        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
+
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: cx.sarif
+
