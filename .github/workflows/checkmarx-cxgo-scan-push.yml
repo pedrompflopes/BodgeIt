@@ -18,13 +18,13 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@feature/integrate-scanners #Github Action version
       with:
-        project: GithubActionCxGoTest
+        project: GithubActionCxGoTest-MP
         team: \Demo\CxFlow\MithileshPawar
         cxgo_client_secret: ${{ secrets.CX_GO_CLIENT_SECRET }}
         cxgo_base_url: https://api.checkmarx.net
         cxgo_portal_url: https://cloud.checkmarx.net
         break_build: false
-        scanner: cxgo
+        scanners: cxgo
         github_token: ${{ secrets.GH_TOKEN }}
         params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
 

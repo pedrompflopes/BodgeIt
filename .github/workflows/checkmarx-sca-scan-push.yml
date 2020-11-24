@@ -18,7 +18,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@feature/integrate-scanners #Github Action version
       with:
-        project: GithubActionSCAScanTest
+        project: GithubActionSCAScanTest-MP
         team: /CxServer/MP
         sca_api_url: https://sca.scacheckmarx.com
         sca_app_url: https://api.scacheckmarx.com

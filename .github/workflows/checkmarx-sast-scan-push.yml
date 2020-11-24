@@ -18,7 +18,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@feature/integrate-scanners #Github Action version
       with:
-        project: GithubActionSASTTest
+        project: GithubActionSASTTest-MP
         team: /CxServer/MP
         checkmarx_url: http://cx9xshard5.dev.checkmarx-ts.com
         checkmarx_username: ${{ secrets.CX_USER }}

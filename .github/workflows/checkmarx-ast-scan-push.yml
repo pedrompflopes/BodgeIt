@@ -18,7 +18,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@feature/integrate-scanners #Github Action version
       with:
-        project: GithubActionTest
+        project: GithubActionASTTest-MP
         team: \Demo\CxFlow\MithileshPawar
         ast_api_url: http://ec2-3-249-214-110.eu-west-1.compute.amazonaws.com
         ast_webapp_url: http://ec2-3-249-214-110.eu-west-1.compute.amazonaws.com
