@@ -23,13 +23,13 @@ jobs:
         sca_api_url: https://sca.scacheckmarx.com
         sca_app_url: https://api.scacheckmarx.com
         sca_access_control_url: https://platform.checkmarx.net
-        sca_tenant: sca-checkmarx
+        sca_tenant: sca-champions
         sca_username: ${{ secrets.CX_SCA_USERNAME }}
         sca_password: ${{ secrets.CX_SCA_PASSWORD }}
         break_build: false
         scanners: sca
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
+        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
