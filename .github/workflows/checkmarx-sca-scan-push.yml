@@ -20,10 +20,10 @@ jobs:
       with:
         project: GithubActionSCAScanTest-MP
         team: /CxServer/MP
-        sca_api_url: https://sca.scacheckmarx.com
-        sca_app_url: https://api.scacheckmarx.com
+        sca_api_url: https://api.scacheckmarx.com
+        sca_app_url: https://sca.scacheckmarx.com
         sca_access_control_url: https://platform.checkmarx.net
-        sca_tenant: SCA-Champions
+        sca_tenant: sca-champions
         sca_username: ${{ secrets.CX_SCA_USERNAME }}
         sca_password: ${{ secrets.CX_SCA_PASSWORD }}
         break_build: false
