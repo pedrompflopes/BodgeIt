@@ -21,7 +21,7 @@ jobs:
         project: GithubActionASTTest-MP
         team: \Demo\CxFlow\MithileshPawar
         ast_api_url: http://cx-ast-testing.dev.checkmarx-ts.com
-        ast_webapp_url: http://cx-ast-testing.dev.checkmarx-ts.com
+    #   ast_webapp_url: http://cx-ast-testing.dev.checkmarx-ts.com
         ast_client_id: cxflow-mith
         ast_client_secret: ${{ secrets.AST_CLIENT_SECRET }}
         break_build: false
