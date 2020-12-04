@@ -26,7 +26,6 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: false
         scanners: sast
-        github_token: ${{ secrets.GH_TOKEN }}
         params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref }}
 
     - name: Upload SARIF file
