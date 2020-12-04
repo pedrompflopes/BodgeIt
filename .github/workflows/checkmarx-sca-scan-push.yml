@@ -19,7 +19,6 @@ jobs:
       uses: checkmarx-ts/checkmarx-cxflow-github-action@docker-image #Github Action version
       with:
         project: GithubActionSCAScanTest-MP
-        team: /CxServer/MP
         sca_api_url: https://api.scacheckmarx.com
         sca_app_url: https://sca.scacheckmarx.com
         sca_access_control_url: https://platform.checkmarx.net
@@ -29,10 +28,9 @@ jobs:
         break_build: false
         scanners: sca
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --repo-url="https://github.com/MithileshPawar/BodgeIt.git" --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}
+        params: --repo-url="https://github.com/MithileshPawar/BodgeIt.git" --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref }}
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: cx.sarif
-
