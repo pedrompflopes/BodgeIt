@@ -19,8 +19,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@docker-image #Github Action version
       with:
-        project: GithubActionAST
-        team: \Demo\CxFlow\MithileshPawar
+        project: GithubActionAST-MP
         ast_api_url: http://ec2-3-249-214-110.eu-west-1.compute.amazonaws.com
     #   ast_webapp_url: http://cx-ast-testing.dev.checkmarx-ts.com
         ast_client_id: CxFlow
