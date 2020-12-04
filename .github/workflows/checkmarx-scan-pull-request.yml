@@ -28,7 +28,7 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: true
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --logging.level.com.checkmarx.flow.custom=TRACE --logging.level.com.checkmarx.flow.cmd=TRACE --logging.level.com.checkmarx.flow.service=TRACE --logging.level.com.checkmarx.flow.controller=TRACE  --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.config=TRACE  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.head_ref }} --bug-tracker=GITHUBPULL --merge-id=${{ env.PR_NUMBER }}
+        params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.head_ref }} --bug-tracker=GITHUBPULL --merge-id=${{ env.PR_NUMBER }}
 
 
 #--logging.level.org.apache.http.wire=DEBUG 
