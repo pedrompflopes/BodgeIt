@@ -2,6 +2,7 @@ name: Checkmarx AST Scan
 on:
   push:
     branches:
+      - main
       - master
     
 jobs:
