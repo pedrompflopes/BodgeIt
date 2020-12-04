@@ -25,10 +25,10 @@ jobs:
         cxgo_portal_url: https://cloud.checkmarx.net
         break_build: false
         scanners: cxgo
-        params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
+        params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: cx.sarif
+        sarif_file: ./cx.sarif
 
