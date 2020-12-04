@@ -27,7 +27,6 @@ jobs:
         sca_password: ${{ secrets.CX_SCA_PASSWORD }}
         break_build: false
         scanners: sca
-        github_token: ${{ secrets.GH_TOKEN }}
         params: --repo-url="https://github.com/MithileshPawar/BodgeIt.git" --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref }}
 
     - name: Upload SARIF file
