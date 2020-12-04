@@ -25,7 +25,6 @@ jobs:
         cxgo_portal_url: https://cloud.checkmarx.net
         break_build: false
         scanners: cxgo
-        github_token: ${{ secrets.GH_TOKEN }}
         params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}  --repo-url="https://github.com/MithileshPawar/BodgeIt.git"
 
     - name: Upload SARIF file
