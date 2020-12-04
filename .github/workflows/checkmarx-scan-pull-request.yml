@@ -3,7 +3,8 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
-      - master    
+      - master
+      - main    
     
 jobs:
   build:
@@ -13,22 +14,20 @@ jobs:
         PR_NUMBER: ${{ github.event.number }}
     steps:
     - name: Get the Organization Name
-      run: echo ::set-env name=ORG_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')
+      run: echo "ORG_NAME=$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')" >> $GITHUB_ENV
     - name: Checkout
       uses: actions/checkout@v2
     # Scan code with Checkmarx
     - name: Checkmarx CxFlow Action
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.0-9.x #Github Action version
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@docker-image #Github Action version
       with:
-        project: GithubActionTest
-        team: ${{ secrets.CX_TEAM }}
-        checkmarx_url: ${{ secrets.CX_SERVER }}
+        project: GithubActionSASTTest-MP
+        team: /CxServer/MP
+        checkmarx_url: http://cx9xshard5.dev.checkmarx-ts.com
         checkmarx_username: ${{ secrets.CX_USER }}
         checkmarx_password: ${{ secrets.CX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
-        break_build: true
+        break_build: false
+        scanners: sast
         github_token: ${{ secrets.GH_TOKEN }}
         params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.head_ref }} --bug-tracker=GITHUBPULL --merge-id=${{ env.PR_NUMBER }}
-
-
-#--logging.level.org.apache.http.wire=DEBUG 
