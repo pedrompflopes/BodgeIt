@@ -30,4 +30,5 @@ jobs:
         break_build: false
         scanners: sast
         github_token: ${{ secrets.GH_TOKEN }}
-        params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.head_ref }} --bug-tracker=GITHUBPULL --merge-id=${{ env.PR_NUMBER }}
+        bug_tracker: GITHUBPULL
+        params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.head_ref }} --merge-id=${{ env.PR_NUMBER }}
