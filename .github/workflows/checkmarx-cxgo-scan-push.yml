@@ -26,6 +26,7 @@ jobs:
         cxgo_portal_url: https://cloud.checkmarx.net
         break_build: false
         scanners: cxgo
+        bug_tracker: Sarif
         params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref	}}
 
     - name: Upload SARIF file
