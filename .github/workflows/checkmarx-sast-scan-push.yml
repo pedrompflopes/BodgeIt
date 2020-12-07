@@ -27,7 +27,7 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: false
         scanners: sast
-        params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref }}
+        params: --bug-tracker=Sarif --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref }}
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
