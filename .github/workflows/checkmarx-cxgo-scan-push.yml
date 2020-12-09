@@ -23,7 +23,6 @@ jobs:
         break_build: false
         scanners: cxgo
         bug_tracker: Sarif
-        params: --branch=${{ github.ref	}} 
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
