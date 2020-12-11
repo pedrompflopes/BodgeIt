@@ -17,7 +17,7 @@ jobs:
       with:
         project: GithubActionSASTTest-MP
         team: /CxServer
-        checkmarx_url: https://cd.cxquality.com/CxWebClient/Projects.aspx
+        checkmarx_url: https://cd.cxquality.com
         checkmarx_username: ${{ secrets.CX_USER }}
         checkmarx_password: ${{ secrets.CX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
