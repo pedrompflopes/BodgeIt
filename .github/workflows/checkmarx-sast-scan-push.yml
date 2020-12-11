@@ -16,7 +16,7 @@ jobs:
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1 #Github Action version
       with:
         project: GithubActionSASTTest-MP
-        team: /CxServer/MP
+        team: /CxServer
         checkmarx_url: https://cd.cxquality.com/CxWebClient/Projects.aspx
         checkmarx_username: ${{ secrets.CX_USER }}
         checkmarx_password: ${{ secrets.CX_PASSWORD }}
