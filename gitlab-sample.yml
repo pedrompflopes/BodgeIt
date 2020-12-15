@@ -1,0 +1,35 @@
+variables:
+    CX_FLOW_EXE: "java -jar /app/cx-flow.jar"
+    CHECKMARX_INCREMENTAL: "false"
+    CX_PROJECT: $CI_PROJECT_NAME
+    APP: $CI_PROJECT_NAME
+    NAMESPACE: $CI_PROJECT_NAMESPACE
+    REPO_NAME: $CI_PROJECT_NAME
+    CX_FLOW_ENABLED_VULNERABILITY_SCANNERS:
+    CX_TEAM: "/CxServer/"
+	BRANCH: $CI_COMMIT_BRANCH
+	
+	
+cx-scan:
+  stage: scan
+  image:
+    name: checkmarx/cx-flow
+    entrypoint: ['']
+  script:
+    - ${CX_FLOW_EXE}
+        --scan
+        --app=${CX_PROJECT}
+        --namespace=${NAMESPACE}
+		--repo-name=${REPO_NAME}
+        --cx-team=${CX_TEAM}
+        --cx-project=${CX_PROJECT}
+        --spring.profiles.active=${CX_FLOW_ENABLED_VULNERABILITY_SCANNERS}
+        --f=.
+        ${PARAMS}
+  only:
+    - master
+  # artifacts:
+    # reports:
+      # sast: gl-sast-report.json
+    # paths:
+      # - gl-sast-report.json
