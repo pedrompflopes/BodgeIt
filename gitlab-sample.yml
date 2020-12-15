@@ -8,6 +8,7 @@ variables:
     CX_FLOW_ENABLED_VULNERABILITY_SCANNERS: sast
     CX_TEAM: "/CxServer/"
     BRANCH: $CI_COMMIT_BRANCH
+    PARAMS: ""
 
 stages:
   - scan
