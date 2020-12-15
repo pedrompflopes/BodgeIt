@@ -8,8 +8,8 @@ variables:
     CX_FLOW_ENABLED_VULNERABILITY_SCANNERS:
     CX_TEAM: "/CxServer/"
     BRANCH: $CI_COMMIT_BRANCH
-	
-	
+
+
 cx-scan:
   stage: scan
   image:
