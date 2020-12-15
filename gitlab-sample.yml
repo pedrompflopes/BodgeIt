@@ -20,7 +20,7 @@ cx-scan:
         --scan
         --app=${CX_PROJECT}
         --namespace=${NAMESPACE}
-	--repo-name=${REPO_NAME}
+        --repo-name=${REPO_NAME}
         --cx-team=${CX_TEAM}
         --cx-project=${CX_PROJECT}
         --spring.profiles.active=${CX_FLOW_ENABLED_VULNERABILITY_SCANNERS}
