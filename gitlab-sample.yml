@@ -61,14 +61,14 @@ cx-scan-mr:
     - ${CX_FLOW_EXE}
           --scan 
           --app="${APP}" 
-          --namespace=${NAMESPACE} 
-          --repo-name=${REPO_NAME} 
-          --repo-url=${REPO_URL} 
-          --cx-team=${CX_TEAM} 
-          --cx-project=${CX_PROJECT} 
+          --namespace="${NAMESPACE}" 
+          --repo-name="${REPO_NAME}" 
+          --repo-url="${REPO_URL}" 
+          --cx-team="${CX_TEAM}" 
+          --cx-project="${CX_PROJECT}" 
           --branch="${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME}" 
-          --project-id=${CI_PROJECT_ID} 
-          --merge-id=${CI_MERGE_REQUEST_IID} 
+          --project-id="${CI_PROJECT_ID}" 
+          --merge-id="${CI_MERGE_REQUEST_IID}" 
           --spring.profiles.active="${CX_FLOW_ENABLED_VULNERABILITY_SCANNERS}" 
           --f=. 
           ${PARAMS} 
