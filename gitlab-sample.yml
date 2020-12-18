@@ -9,7 +9,9 @@ variables:
     CX_FLOW_ENABLED_VULNERABILITY_SCANNERS: sast
     CX_TEAM: "/CxServer/"
     BRANCH: $CI_COMMIT_BRANCH
-    CX_FLOW_BREAK_BUILD: "false"
+    CX_FLOW_BREAK_BUILD: "true"
+    GITLAB_BLOCK_MERGE: "true"
+    GITLAB_ERROR_MERGE: "true"
     PARAMS: ""
 
 stages:
