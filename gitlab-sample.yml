@@ -25,7 +25,8 @@ cx-scan:
       CX_FLOW_BUG_TRACKER: GitLabDashboard
       CX_FLOW_BUG_TRACKER_IMPL: GitLabDashboard
   image:
-    name: checkmarx/cx-flow
+    name: jprannoyn474/cxflow
+    #name: checkmarx/cx-flow
     entrypoint: ['']
   script:
     - ${CX_FLOW_EXE}
@@ -56,8 +57,9 @@ cx-scan-mr:
   variables:
       CX_FLOW_BUG_TRACKER: GITLABMERGE
       GITLAB_TOKEN: $GITLAB_TOKEN
-  image:
-    name: checkmarx/cx-flow
+  image:   
+    name: jprannoyn474/cxflow
+   # name: checkmarx/cx-flow
     entrypoint: ['']
   script:
     - ${CX_FLOW_EXE}
