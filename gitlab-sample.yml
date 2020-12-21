@@ -48,9 +48,6 @@ cx-scan:
      paths:
        - gl-sast-report.json
 
-
-stages:
-   - scan-mr
   
 cx-scan-mr:
   stage: scan-mr
