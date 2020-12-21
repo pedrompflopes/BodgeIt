@@ -16,7 +16,6 @@ variables:
 
 stages:
   - scan
-  - scan-mr
 
 cx-scan:
   stage: scan
@@ -50,6 +49,9 @@ cx-scan:
        - gl-sast-report.json
 
 
+stages:
+   - scan-mr
+  
 cx-scan-mr:
   stage: scan-mr
   only:
