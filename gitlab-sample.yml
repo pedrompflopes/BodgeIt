@@ -50,7 +50,7 @@ cx-scan:
 
   
 cx-scan-mr:
-  stage: scan-mr
+  stage: scan
   only:
     - merge_requests
   variables:
