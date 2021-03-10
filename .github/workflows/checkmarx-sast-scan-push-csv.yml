@@ -16,15 +16,12 @@ jobs:
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1 #Github Action version
       with:
         project: GithubActionSASTTest-MP
-        team: /CxServer/MP
-        sca_api_url: https://api.scacheckmarx.com
-        sca_app_url: https://sca.scacheckmarx.com
-        sca_access_control_url: https://platform.checkmarx.net
-        sca_tenant: sca-champions
-        sca_username: ${{ secrets.CX_SCA_USERNAME }}
-        sca_password: ${{ secrets.CX_SCA_PASSWORD }}
+        team: \Demo\CxFlow\MithileshPawar
+        cxgo_client_secret: ${{ secrets.CX_GO_CLIENT_SECRET }}
+        cxgo_base_url: https://api.checkmarx.net
+        cxgo_portal_url: https://cloud.checkmarx.net
         break_build: false
-        scanners: sca 
+        scanners: cxgo
         bug_tracker: Csv
         params: --csv.file-name-format="[TEAM]-[PROJECT].csv" --csv.data-folder="./" --csv.include-header=true
 
