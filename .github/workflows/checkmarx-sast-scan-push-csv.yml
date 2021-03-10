@@ -16,12 +16,13 @@ jobs:
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1 #Github Action version
       with:
         project: GithubActionSASTTest-MP
-        team: \Demo\CxFlow\MithileshPawar
-        cxgo_client_secret: ${{ secrets.CX_GO_CLIENT_SECRET }}
-        cxgo_base_url: https://api.checkmarx.net
-        cxgo_portal_url: https://cloud.checkmarx.net
+        team: CxServer\SP\Checkmarx\Mithilesh
+        checkmarx_url: https://ast.dev.checkmarx-ts.com
+        checkmarx_username: ${{ secrets.CX_USER }}
+        checkmarx_password: ${{ secrets.CX_PASSWORD }}
+        checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: false
-        scanners: cxgo
+        scanners: sast
         bug_tracker: Csv
         params: --csv.file-name-format="[TEAM]-[PROJECT].csv" --csv.data-folder="./" --csv.include-header=true
 
