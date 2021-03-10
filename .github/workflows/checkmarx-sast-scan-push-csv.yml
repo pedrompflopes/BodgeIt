@@ -1,0 +1,30 @@
+name: Checkmarx SAST Scan
+on:
+  push:
+    branches:
+      - master
+      - main
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    # Scan code with Checkmarx
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1 #Github Action version
+      with:
+        project: GithubActionSASTTest-MP
+        team: /CxServer/MP
+        checkmarx_url: http://172.28.164.216
+        checkmarx_username: ${{ secrets.CX_USER }}
+        checkmarx_password: ${{ secrets.CX_PASSWORD }}
+        checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+        break_build: false
+        scanners: sast
+        bugtracker: Csv
+        params: --csv.file-name-format="[TEAM]-[PROJECT].csv" --csv.data-folder="./" --csv.include-header=true
+
+
+
