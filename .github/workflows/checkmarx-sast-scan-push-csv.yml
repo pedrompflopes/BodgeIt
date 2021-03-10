@@ -17,12 +17,14 @@ jobs:
       with:
         project: GithubActionSASTTest-MP
         team: /CxServer/MP
-        checkmarx_url: http://172.28.164.216
-        checkmarx_username: ${{ secrets.CX_USER }}
-        checkmarx_password: ${{ secrets.CX_PASSWORD }}
-        checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+        sca_api_url: https://api.scacheckmarx.com
+        sca_app_url: https://sca.scacheckmarx.com
+        sca_access_control_url: https://platform.checkmarx.net
+        sca_tenant: sca-champions
+        sca_username: ${{ secrets.CX_SCA_USERNAME }}
+        sca_password: ${{ secrets.CX_SCA_PASSWORD }}
         break_build: false
-        scanners: sast
+        scanners: sca 
         bug_tracker: Csv
         params: --csv.file-name-format="[TEAM]-[PROJECT].csv" --csv.data-folder="./" --csv.include-header=true
 
