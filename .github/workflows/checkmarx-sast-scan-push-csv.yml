@@ -23,7 +23,7 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: false
         scanners: sast
-        bugtracker: Csv
+        bug_tracker: Csv
         params: --csv.file-name-format="[TEAM]-[PROJECT].csv" --csv.data-folder="./" --csv.include-header=true
 
 
