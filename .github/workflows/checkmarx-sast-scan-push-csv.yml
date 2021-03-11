@@ -22,7 +22,7 @@ jobs:
         checkmarx_password: ${{ secrets.CX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         break_build: false
-        params: --bug-tracker=Csv --bug-tracker-impl=Csv --csv.file-name-format=[TEAM]-[PROJECT].csv --csv.include-header=true
+        params: --bug-tracker=Csv --bug-tracker-impl=Csv --csv.file-name-format=[TEAM]-[PROJECT].csv --csv.include-header=true  --csv.data-folder=./myCSV
 
 
 
