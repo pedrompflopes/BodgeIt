@@ -18,4 +18,4 @@ jobs:
         base_uri: http://demo.ast-cloud.com
         client_id: ${{ secrets.AST_CLIENT_ID }}
         secret: ${{ secrets.AST_SECRET }}
-        additional_params: --incremental true
+        additional_params: --incremental true -f '!*.jar'
