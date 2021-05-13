@@ -16,6 +16,4 @@ jobs:
       uses: CheckmarxDev/ast-github-action@mith_additional_params  #Github Action version.
       with:
         project_name: MPGHAction
-        base_uri: https://master.cxast.com
-        cx_apikey: ${{ secrets.AST_API_KEY }}
         scan_types: sast
