@@ -17,3 +17,6 @@ jobs:
       with:
         project_name: MPGHAction
         scan_types: sast
+        base_uri: https://master.cxast.com
+        cx_apikey: ${{ secrets.AST_API_KEY }}
+        additional_params: -v
