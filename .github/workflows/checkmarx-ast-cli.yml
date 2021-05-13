@@ -19,5 +19,4 @@ jobs:
         base_uri: https://master.cxast.com
         cx_apikey: ${{ secrets.AST_API_KEY }}
         scan_types: sast
-        filter: "!*.md"
         additional_params: -v
