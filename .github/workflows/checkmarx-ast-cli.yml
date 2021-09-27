@@ -11,12 +11,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    # Scan code with Checkmarx AST
-    - name: Checkmarx AST CLI
-      uses: CheckmarxDev/ast-github-action@mith_additional_params  #Github Action version.
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
       with:
-        project_name: MPGHAction
-        scan_types: sast
-        base_uri: https://master.cxast.com
-        cx_apikey: ${{ secrets.AST_API_KEY }}
-        additional_params: -v --sast-preset-name High
+          sarif_file: result.sarif
